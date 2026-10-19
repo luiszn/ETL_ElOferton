@@ -11,8 +11,8 @@
   DTS:LocaleID="10250"
   DTS:ObjectName="00_Master"
   DTS:PackageType="5"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{369C1688-9E85-40E1-A779-140EC89ADF33}">
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{727D2F86-7FF6-4CEA-B2BA-8149B1195BC5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -182,6 +182,58 @@
       DTS:ObjectName="Restricción 4"
       DTS:To="Package\SQL_Audit_Success" />
   </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{2931BCA3-1E55-44D2-8038-844087800D11}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="La propiedad de propagación del evento"
+          DTS:DTSID="{07F39149-5C3F-4CD5-B930-44D6C5CE1391}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\SQL_Audit_Error"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Tarea Ejecutar SQL"
+          DTS:DTSID="{B8942AAF-5C0F-455A-A39B-CEF6E0A2C365}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL_Audit_Error">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{220D38EC-E237-465F-9D20-D699261BE8E8}"
+              SQLTask:SqlStatementSource="UPDATE etl.AuditoriaCarga" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="NewParameterName"
+                SQLTask:DtsVariableName="System::ErrorDescription"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="0" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="NewParameterName"
+                SQLTask:DtsVariableName="User::LoadID"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="3"
+                SQLTask:ParameterSize="1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
 <!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
@@ -195,27 +247,27 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="184,41.6"
+          Size="184,42"
           Id="Package\EPT_Extract_Staging"
           TopLeft="763,167" />
         <NodeLayout
-          Size="195.2,41.6"
+          Size="195,42"
           Id="Package\EPT_Load_Dimensions"
           TopLeft="762,266" />
         <NodeLayout
-          Size="185.6,41.6"
+          Size="186,42"
           Id="Package\EPT_Load_FactSales"
           TopLeft="765,382" />
         <NodeLayout
-          Size="145.6,41.6"
+          Size="146,42"
           Id="Package\EPT_Validate"
           TopLeft="784,493" />
         <NodeLayout
-          Size="161.6,41.6"
+          Size="162,42"
           Id="Package\SQL_Audit_Start"
           TopLeft="776,61" />
         <NodeLayout
-          Size="180,41.6"
+          Size="180,42"
           Id="Package\SQL_Audit_Success"
           TopLeft="761,591" />
         <EdgeLayout
@@ -331,5 +383,17 @@
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="163,42"
+          Id="Package.EventHandlers[OnError]\SQL_Audit_Error"
+          TopLeft="154,128" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

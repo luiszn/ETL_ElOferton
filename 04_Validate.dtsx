@@ -11,11 +11,21 @@
   DTS:LocaleID="10250"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{8C195C8D-576C-4213-BC35-EA0E8F671682}">
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{5EBFF154-C151-4344-967C-4895488A22C3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:Variables />
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E4B7F530-42E9-4AB8-8475-8156B3B7A0DE}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LoadID">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
   <DTS:Executables>
     <DTS:Executable
       DTS:refId="Package\SQL_Validate"
@@ -47,9 +57,9 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="147.2,41.6"
+          Size="147,42"
           Id="Package\SQL_Validate"
-          TopLeft="679.16667709334,243.46666673296" />
+          TopLeft="440.16667709334,191.46666673296" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
