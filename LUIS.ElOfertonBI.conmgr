@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="LUIS.ElOfertonBI"
+  DTS:DTSID="{8D63D229-3E40-496F-A3C9-F329372136FF}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=LUIS;Initial Catalog=ElOfertonBI;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-ETL_ElOferton-{8D63D229-3E40-496F-A3C9-F329372136FF}LUIS.ElOfertonBI;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
