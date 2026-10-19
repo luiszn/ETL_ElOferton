@@ -11,8 +11,8 @@
   DTS:LocaleID="10250"
   DTS:ObjectName="00_Master"
   DTS:PackageType="5"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{88A2932E-29B9-4D48-88BC-2E3894D9462F}">
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{369C1688-9E85-40E1-A779-140EC89ADF33}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -129,7 +129,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{220D38EC-E237-465F-9D20-D699261BE8E8}"
-          SQLTask:SqlStatementSource="UPDATE etl.AuditoriaCarga&#xA;SET Fin = SYSDATETIME(), Estado = 'Correcto',&#xA;    FilasOrigen    = (SELECT COUNT_BIG(*) FROM stg.Ventas),&#xA;    FilasDestino   = (SELECT COUNT_BIG(*) FROM dw.FactVentas),&#xA;    ImporteOrigen  = (SELECT SUM(ImporteNeto) FROM stg.Ventas),&#xA;    ImporteDestino = (SELECT SUM(ImporteNeto) FROM dw.FactVentas),&#xA;    MensajeError   = NULL&#xA;WHERE CargaID = ?;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          SQLTask:SqlStatementSource="UPDATE etl.AuditoriaCarga&#xA;SET Fin = SYSDATETIME(), Estado = 'Correcto',&#xA;    FilasOrigen    = (SELECT COUNT_BIG(*) FROM stg.Ventas),&#xA;    FilasDestino   = (SELECT COUNT_BIG(*) FROM dw.FactVentas),&#xA;    ImporteOrigen  = (SELECT SUM(ImporteNeto) FROM stg.Ventas),&#xA;    ImporteDestino = (SELECT SUM(ImporteNeto) FROM dw.FactVentas),&#xA;    MensajeError   = NULL&#xA;WHERE CargaID = ?;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ParameterBinding
             SQLTask:ParameterName="0"
             SQLTask:DtsVariableName="User::LoadID"
@@ -195,25 +195,29 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="162,42"
-          Id="Package\SQL_Audit_Start"
-          TopLeft="776,61" />
-        <NodeLayout
-          Size="184,42"
+          Size="184,41.6"
           Id="Package\EPT_Extract_Staging"
           TopLeft="763,167" />
         <NodeLayout
-          Size="195,42"
+          Size="195.2,41.6"
           Id="Package\EPT_Load_Dimensions"
           TopLeft="762,266" />
         <NodeLayout
-          Size="186,42"
+          Size="185.6,41.6"
           Id="Package\EPT_Load_FactSales"
           TopLeft="765,382" />
         <NodeLayout
-          Size="146,42"
+          Size="145.6,41.6"
           Id="Package\EPT_Validate"
           TopLeft="784,493" />
+        <NodeLayout
+          Size="161.6,41.6"
+          Id="Package\SQL_Audit_Start"
+          TopLeft="776,61" />
+        <NodeLayout
+          Size="180,41.6"
+          Id="Package\SQL_Audit_Success"
+          TopLeft="761,591" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
           TopLeft="856,103">
@@ -302,10 +306,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="180,42"
-          Id="Package\SQL_Audit_Success"
-          TopLeft="761,591" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 4]"
           TopLeft="854,535">

@@ -11,8 +11,8 @@
   DTS:LocaleID="10250"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="1"
-  DTS:VersionGUID="{CEB87AF3-F815-4A12-9FC5-D419193208BA}">
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{8C195C8D-576C-4213-BC35-EA0E8F671682}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -30,7 +30,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{220D38EC-E237-465F-9D20-D699261BE8E8}"
-          SQLTask:SqlStatementSource="EXEC etl.usp_Stg_ValidarCarga;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="EXEC etl.usp_Stg_ValidarCarga;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -47,9 +47,9 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="147,42"
+          Size="147.2,41.6"
           Id="Package\SQL_Validate"
-          TopLeft="870,253" />
+          TopLeft="679.16667709334,243.46666673296" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
